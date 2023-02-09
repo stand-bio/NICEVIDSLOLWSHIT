@@ -30,6 +30,8 @@ body {
     font-family: 'Rubik', sans-serif;
     color: #fff;
     background-color: #000;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
