@@ -1,48 +1,58 @@
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="css/v2.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/main.js"></script>
-<link rel="prefetch" href="https://short.elmnts.co/html/2zvizxd">
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/TweenMax.min.js"></script>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<title>inture.xyz</title>
-<meta content="crip walkin' on your internet presence" property="og:description">	
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>Inture.xyz</title>
+  <meta content="Crip walkin' on your internet presence" property="og:description">	
 </head>
 <body>
-<div class="btn-container">
-		<button id="overlay-start" onclick="overlay();">click me</button>
-</div>
-<div class="wrapper" id="wrapper">
-	<div class="transbox">
-		<div class="centered">
-			<center>filter#0001</center>
-    <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
-    <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
-   		</div>
-	</div>
-<audio id="audio" muted paused style="display:none;" controls loop>
-<source src="lol.m4a" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<video loop muted="muted" id="bgvid">
+  <header>
+    <nav>
+      <ul>
+        <li><a href='mailto:f@abuse.cx' target="_blank">Contact</a></li>
+        <li><a href="https://t.me/tyvel" target="_blank">Telegram</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="btn-container">
+      <button id="overlay-start" onclick="overlay();">discord</button>
+    </div>
+    <div class="wrapper" id="wrapper">
+      <div class="transbox">
+        <div class="centered">
+          <center>filter#0001</center>
+        </div>
+      </div>
+      <audio id="audio" muted paused controls loop>
+        <source src="lol.m4a" type="audio/mpeg">
+        <p>Your browser does not support the audio element.</p>
+      </audio>
+      <video loop muted id="bgvid">
         <source id="bgSource" src="" type="video/mp4">
-</video>
-<script src="js/sparklehover.js"></script>
-<script>
-let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
-let randomVideo = videos[Math.floor(Math.random()*videos.length)];
-document.getElementById("bgSource").src = "media/" + randomVideo;
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-});
-
-document.onkeydown = function(event) {
-  if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
-    event.preventDefault();
-  }
-};
-	
-</script>
-</div>
+        <p>Your browser does not support the video element.</p>
+      </video>
+    </div>
+  </main>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/TweenMax.min.js"></script>
+  <script src="js/sparklehover.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
+    let randomVideo = videos[Math.floor(Math.random()*videos.length)];
+    document.getElementById("bgSource").src = "media/" + randomVideo;
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+    });
+    document.onkeydown = function(event) {
+      if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
+        event.preventDefault();
+      }
+    };
+  </script>
 </body>
+</html>
