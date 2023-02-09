@@ -28,21 +28,21 @@ Your browser does not support the audio element.
 <video loop muted="muted" id="bgvid">
         <source id="bgSource" src="" type="video/mp4">
 </video>
+<script src="js/sparklehover.js"></script>
 <script>
-src="js/sparklehover.js">
 let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
 let randomVideo = videos[Math.floor(Math.random()*videos.length)];
 document.getElementById("bgSource").src = "media/" + randomVideo;
 document.addEventListener('contextmenu', function(event) {
   event.preventDefault();
 });
-	
+
 document.onkeydown = function(event) {
   if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
     event.preventDefault();
   }
 };
-
 </script>
+
 </div>
 </body>
