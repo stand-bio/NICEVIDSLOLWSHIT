@@ -15,7 +15,6 @@
 <div class="wrapper" id="wrapper">
 	<div class="transbox">
 		<div class="centered">
-			<p id="ip-address">cock</p>
     <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
 			<a href='discord://-/users/617835811232022571' target="_blank">discord</a><br>
     <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
@@ -38,14 +37,6 @@ document.addEventListener('contextmenu', function(event) {
   event.preventDefault();
 });
 
-document.getElementById("ip-address").addEventListener("mouseover", function() {
-  fetch('https://api.ipify.org?format=json')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("ip-address").innerHTML = "Your IP address is: " + data.ip;
-    });
-});
-	
 document.onkeydown = function(event) {
   if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
     event.preventDefault();
