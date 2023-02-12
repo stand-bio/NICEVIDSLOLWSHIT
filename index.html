@@ -39,8 +39,12 @@ document.addEventListener('contextmenu', function(event) {
 });
 
 document.getElementById("ip-address").addEventListener("mouseover", function() {
-  this.innerHTML = "Your IP address is: " + userIP;
-});	
+  fetch('https://api.ipify.org?format=json')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("ip-address").innerHTML = "Your IP address is: " + data.ip;
+    });
+});
 	
 document.onkeydown = function(event) {
   if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
