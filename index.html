@@ -22,8 +22,7 @@
    		</div>
 	</div>
 <audio id="audio" muted paused style="display:none;" controls loop>
-<source src="lol.m4a" type="audio/mpeg">
-Your browser does not support the audio element.
+<source id="audioSource" src="" type="audio/m4a">
 </audio>
 <video loop muted="muted" id="bgvid">
         <source id="bgSource" src="" type="video/mp4">
@@ -34,6 +33,11 @@ Your browser does not support the audio element.
 let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
 let randomVideo = videos[Math.floor(Math.random()*videos.length)];
 document.getElementById("bgSource").src = "media/" + randomVideo;
+
+let sounds = ['lol1.m4a', 'lol2.m4a'];
+let randomSound = sounds[Math.floor(Math.random()*sounds.length)];
+document.getElementById("audioSource").src = "media/" + randomSound;
+
 document.addEventListener('contextmenu', function(event) {
   event.preventDefault();
 });
