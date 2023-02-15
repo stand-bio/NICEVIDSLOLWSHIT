@@ -43,6 +43,13 @@ document.onkeydown = function(event) {
   }
 };
 	
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Tab') {
+    e.preventDefault();
+  }
+});
+
+
 </script>
 </div>
 </body>
