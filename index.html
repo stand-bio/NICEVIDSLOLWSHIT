@@ -10,50 +10,49 @@
 </head>
 
 <body>
-<div class="btn-container">
-		<button id="overlay-start" onclick="overlay();">click me</button>
-</div>
-<div class="wrapper" id="wrapper">
-	<div class="transbox">
-		<div class="centered">
-    <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
-			<a href='discord://-/users/617835811232022571' target="_blank">discord</a><br>
-    <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
-   		</div>
-	</div>
-<audio id="audio" style="display:none;" controls loop>
-  <source id="audioSource" src="" type="audio/m4a">
-</audio>
-<video loop muted="muted" id="bgvid">
-        <source id="bgSource" src="" type="video/mp4">
-</video>
-<script src="js/sparklehover.js"></script>
-<script src="js/animatetitle.js"></script>
-<script>
-let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
-let randomVideo = videos[Math.floor(Math.random()*videos.length)];
-document.getElementById("bgSource").src = "media/" + randomVideo;
+    <div class="btn-container">
+        <button id="overlay-start" onclick="overlay();">click me</button>
+    </div>
+    <div class="wrapper" id="wrapper">
+        <div class="transbox">
+            <div class="centered">
+                <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
+                <a href='discord://-/users/617835811232022571' target="_blank">discord</a><br>
+                <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
+            </div>
+        </div>
+        <audio id="audio" muted paused style="display:none;" controls loop>
+            <source id="audioSource" src="" type="audio/m4a">
+        </audio>
+        <video loop muted="muted" id="bgvid">
+            <source id="bgSource" src="" type="video/mp4">
+        </video>
+        <script src="js/sparklehover.js"></script>
+        <script src="js/animatetitle.js"></script>
+        <script>
+            let videos = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
+            let randomVideo = videos[Math.floor(Math.random()*videos.length)];
+            document.getElementById("bgSource").src = "media/" + randomVideo;
 
-let sounds = ['lol1.m4a', 'lol2.m4a'];
-let randomSound = sounds[Math.floor(Math.random()*sounds.length)];
-document.getElementById("audioSource").src = "media/" + randomSound;
+            let sounds = ['lol1.m4a', 'lol2.m4a'];
+            let randomSound = sounds[Math.floor(Math.random()*sounds.length)];
+            document.getElementById("audioSource").src = "media/" + randomSound;
 
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-});
+            document.addEventListener('contextmenu', function(event) {
+                event.preventDefault();
+            });
 
-document.onkeydown = function(event) {
-  if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
-    event.preventDefault();
-  }
-};
-	
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Tab') {
-    e.preventDefault();
-  }
-});
+            document.onkeydown = function(event) {
+                if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
+                    event.preventDefault();
+                }
+            };
 
-</script>
-</div>
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                }
+            });
+        </script>
+    </div>
 </body>
