@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dark Text Box</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #ddd;
+        font-size: 1.2em;
+        padding: 20px;
+      }
+      
+      textarea {
+        background-color: #333;
+        border: none;
+        color: #ddd;
+        font-family: monospace;
+        font-size: 1em;
+        height: 200px;
+        width: 100%;
+        padding: 10px;
+      }
+      
+      button {
+        background-color: #444;
+        border: none;
+        color: #ddd;
+        padding: 10px;
+        margin-right: 10px;
+        font-size: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dark Text Box</h1>
+    <textarea id="text"></textarea>
+    <button id="copy-btn">Copy All</button>
+    <button id="clear-btn">Clear All</button>
+    
+    <script>
+      const textArea = document.getElementById("text");
+      const copyBtn = document.getElementById("copy-btn");
+      const clearBtn = document.getElementById("clear-btn");
+      
+      copyBtn.addEventListener("click", () => {
+        textArea.select();
+        document.execCommand("copy");
+      });
+      
+      clearBtn.addEventListener("click", () => {
+        textArea.value = "";
+      });
+    </script>
+  </body>
+</html>
