@@ -103,16 +103,7 @@
       window.location.href = "https://inture.xyz";
       });
       
-      // Change font size of text in the text box
-      var slider = document.createElement("input");
-      slider.type = "range";
-      slider.min = "10";
-      slider.max = "30";
-      slider.value = "16";
-      slider.step = "1";
-      slider.oninput = function() {
-        textBox.style.fontSize = this.value + "px";
-      };
+
       textBox.after(slider);
       
       // Save text to file
