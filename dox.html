@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Stylish Text Box</title>
+    <title>inture.xyz</title>
     <style>
       body {
         background-color: #f2f2f2;
@@ -29,7 +29,7 @@
         outline: none;
       }
 
-      #copy-btn, #clear-btn {
+      #copy-btn, #clear-btn, #save-btn, #home-btn {
         background-color: #4c6ef5;
         color: #fff;
         border: none;
@@ -40,7 +40,7 @@
         transition: background-color 0.3s ease;
       }
 
-      #copy-btn:hover, #clear-btn:hover {
+      #copy-btn:hover, #clear-btn:hover, #save-btn:hover, #home-btn:hover {
         background-color: #3f5ac9;
       }
 
@@ -54,16 +54,19 @@
     </style>
   </head>
   <body>
-    <h1>Stylish Text Box</h1>
+    <h1>Dox Notepad</h1>
     <textarea id="text-box" placeholder="Type your text here..."></textarea>
     <div>
       <button id="copy-btn">Copy All</button>
       <button id="clear-btn">Clear All</button>
+      <button id="save-btn">Save Text</button>
+      <a href="/" id="home-btn">Go to Home Page</a>
     </div>
 
     <script>
       var copyBtn = document.getElementById("copy-btn");
       var clearBtn = document.getElementById("clear-btn");
+      var saveBtn = document.getElementById("save-btn");
       var textBox = document.getElementById("text-box");
 
       // Copy all text to clipboard
@@ -75,6 +78,22 @@
       // Clear text box
       clearBtn.addEventListener("click", function () {
         textBox.value = "";
+      });
+
+      // Save text to file
+      saveBtn.addEventListener("click", function () {
+        var text = textBox.value;
+        var file = new Blob([text], { type: "text/plain" });
+        var a = document.createElement("a");
+        var url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = "text.txt";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
       });
     </script>
   </body>
