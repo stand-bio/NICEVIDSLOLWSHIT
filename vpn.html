@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VPN Detection</title>
+</head>
+<body>
+
+	<script>
+		// Function to detect VPN
+		function isVPN() {
+			var isVpn = false;
+
+			// Check for VPN by making an AJAX request to an IP detection API
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "https://api.ipify.org/?format=json", false);
+			xhr.send();
+
+			// If the IP address returned by the API is different from the user's IP address, assume they are using a VPN
+			if (JSON.parse(xhr.responseText).ip !== "<?php echo $_SERVER['REMOTE_ADDR']; ?>") {
+				isVpn = true;
+			}
+
+			return isVpn;
+		}
+
+		// Change background color based on VPN status
+		if (isVPN()) {
+			document.body.style.backgroundColor = "red";
+		} else {
+			document.body.style.backgroundColor = "green";
+		}
+	</script>
+
+</body>
+</html>
