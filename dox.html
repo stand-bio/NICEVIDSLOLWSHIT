@@ -51,6 +51,17 @@
       #clear-btn:hover {
         background-color: #c0392b;
       }
+
+      #font-size-slider {
+        width: 80%;
+        margin: 20px auto;
+      }
+
+      #font-size-label {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -62,6 +73,10 @@
       <button id="home-btn">Go to Home Page</button>
       <button id="clear-btn">Clear All</button>
     </div>
+    <div id="font-size-slider-container">
+      <label id="font-size-label" for="font-size-slider">Font Size:</label>
+      <input type="range" id="font-size-slider" min="12" max="24" value="16">
+    </div>
 
     <script>
       var copyBtn = document.getElementById("copy-btn");
@@ -69,6 +84,7 @@
       var saveBtn = document.getElementById("save-btn");
       var textBox = document.getElementById("text-box");
       var homeBtn = document.getElementById("home-btn");
+      var fontSizeSlider = document.getElementById("font-size-slider");
 
       textBox.setAttribute('spellcheck', false);
       
@@ -87,6 +103,18 @@
       homeBtn.addEventListener("click", function() {
       window.location.href = "https://inture.xyz";
       });
+      
+      // Change font size of text in the text box
+      var slider = document.createElement("input");
+      slider.type = "range";
+      slider.min = "10";
+      slider.max = "30";
+      slider.value = "16";
+      slider.step = "1";
+      slider.oninput = function() {
+        textBox.style.fontSize = this.value + "px";
+      };
+      textBox.after(slider);
       
       // Save text to file
       saveBtn.addEventListener("click", function () {
