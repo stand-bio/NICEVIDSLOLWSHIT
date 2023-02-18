@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>inture.xyz</title>
+    <title>Stylish Text Box</title>
     <style>
       body {
-        background-color: #fff;
+        background-color: #f2f2f2;
         font-family: Arial, sans-serif;
         color: #333;
       }
@@ -38,8 +38,6 @@
         margin-right: 10px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-        font-size: 16px;
-        font-weight: bold;
       }
 
       #copy-btn:hover, #clear-btn:hover, #save-btn:hover, #home-btn:hover {
@@ -53,31 +51,16 @@
       #clear-btn:hover {
         background-color: #c0392b;
       }
-
-      #home-btn {
-        font-size: 20px;
-        font-weight: bold;
-        text-decoration: underline;
-      }
-
-      #save-btn {
-        background-color: #ff5733;
-      }
-
-      #save-btn:hover {
-        background-color: #e64a19;
-      }
-
     </style>
   </head>
   <body>
-    <h1>Dox Notepad</h1>
+    <h1>Stylish Text Box</h1>
     <textarea id="text-box" placeholder="Type your text here..."></textarea>
     <div>
       <button id="copy-btn">Copy All</button>
-      <button id="clear-btn">Clear All</button>
       <button id="save-btn">Save Text</button>
-      <a href="/" id="home-btn">Go to Home Page</a>
+      <button id="home-btn">Go to Home Page</button
+      <button id="clear-btn">Clear All</button>
     </div>
 
     <script>
@@ -85,6 +68,7 @@
       var clearBtn = document.getElementById("clear-btn");
       var saveBtn = document.getElementById("save-btn");
       var textBox = document.getElementById("text-box");
+      var homeBtn = document.getElementById("home-btn");
 
       // Copy all text to clipboard
       copyBtn.addEventListener("click", function () {
@@ -96,7 +80,12 @@
       clearBtn.addEventListener("click", function () {
         textBox.value = "";
       });
-
+      
+      //Go to Home Page
+      homeBtn.addEventListener("click", function() {
+      window.location.href = "https://inture.xyz";
+      });
+      
       // Save text to file
       saveBtn.addEventListener("click", function () {
         var text = textBox.value;
@@ -112,8 +101,6 @@
           window.URL.revokeObjectURL(url);
         }, 0);
       });
-
-      // Save text to local storage
-      window.addEventListener("beforeunload", function () {
-        localStorage.setItem("savedText", textBox.value);
-});
+    </script>
+  </body>
+</html>
