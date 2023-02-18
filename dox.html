@@ -73,9 +73,6 @@
       <button id="home-btn">Go to Home Page</button>
       <button id="clear-btn">Clear All</button>
     </div>
-    <div id="font-size-slider-container">
-      <input type="range" id="font-size-slider" min="12" max="24" value="16">
-    </div>
 
     <script>
       var copyBtn = document.getElementById("copy-btn");
@@ -103,7 +100,16 @@
       window.location.href = "https://inture.xyz";
       });
       
-
+// Change font size of text in the text box
+      var slider = document.createElement("input");
+      slider.type = "range";
+      slider.min = "10";
+      slider.max = "30";
+      slider.value = "16";
+      slider.step = "1";
+      slider.oninput = function() {
+        textBox.style.fontSize = this.value + "px";
+      };
       textBox.after(slider);
       
       // Save text to file
