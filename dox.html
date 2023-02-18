@@ -1,64 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Stylish Dark Page</title>
+    <title>Stylish Text Box</title>
     <style>
       body {
-        background-color: #1f1f1f;
-        color: #fff;
-        font-size: 16px;
+        background-color: #f2f2f2;
         font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
+        color: #333;
       }
-      
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      
-      input[type="text"] {
-        background-color: transparent;
-        border: none;
-        border-bottom: 2px solid #fff;
-        color: #fff;
-        font-size: 28px;
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 10px;
-        width: 80%;
-        max-width: 600px;
+
+      h1 {
         text-align: center;
+        margin-top: 50px;
       }
-      
-      input[type="button"] {
+
+      #text-box {
+        width: 80%;
+        height: 300px;
+        margin: 50px auto;
         background-color: #fff;
+        border-radius: 5px;
         border: none;
-        color: #1f1f1f;
-        font-size: 18px;
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 10px 20px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
       }
-      
-      input[type="button"]:hover {
-        background-color: #1f1f1f;
+
+      #copy-btn, #clear-btn {
+        background-color: #4c6ef5;
         color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #copy-btn:hover, #clear-btn:hover {
+        background-color: #3f5ac9;
+      }
+
+      #clear-btn {
+        background-color: #e74c3c;
+      }
+
+      #clear-btn:hover {
+        background-color: #c0392b;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <input type="text" placeholder="Enter your text here...">
-      <br>
-      <input type="button" value="Copy All">
-      <input type="button" value="Clear All">
+    <h1>Stylish Text Box</h1>
+    <textarea id="text-box" placeholder="Type your text here..."></textarea>
+    <div>
+      <button id="copy-btn">Copy All</button>
+      <button id="clear-btn">Clear All</button>
     </div>
+
+    <script>
+      var copyBtn = document.getElementById("copy-btn");
+      var clearBtn = document.getElementById("clear-btn");
+      var textBox = document.getElementById("text-box");
+
+      // Copy all text to clipboard
+      copyBtn.addEventListener("click", function () {
+        textBox.select();
+        document.execCommand("copy");
+      });
+
+      // Clear text box
+      clearBtn.addEventListener("click", function () {
+        textBox.value = "";
+      });
+    </script>
   </body>
 </html>
