@@ -1,100 +1,64 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dark Text Box</title>
+    <title>My Stylish Dark Page</title>
     <style>
-      * {
-        box-sizing: border-box;
+      body {
+        background-color: #1f1f1f;
+        color: #fff;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
       }
-
-      body {
-        background-color: #1a1a1a;
-        color: #fff;
-        font-family: sans-serif;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
+      
       .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 50px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
       }
-
-      .textbox {
-        background-color: #212121;
+      
+      input[type="text"] {
+        background-color: transparent;
         border: none;
+        border-bottom: 2px solid #fff;
         color: #fff;
-        font-family: monospace;
-        font-size: 1.1em;
-        height: 400px;
-        width: 100%;
-        padding: 20px;
-        margin-bottom: 40px;
-        resize: none;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-      }
-
-      .btn {
-        background-color: #3d3d3d;
-        border: none;
-        color: #fff;
-        padding: 14px 24px;
-        font-size: 1em;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-        border-radius: 8px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-      }
-
-      .btn:hover {
-        background-color: #505050;
-      }
-
-      .btn:active {
-        background-color: #606060;
-      }
-
-      .btn-copy {
-        margin-right: 20px;
-      }
-
-      h1 {
-        font-size: 2.5em;
-        margin-bottom: 40px;
+        font-size: 28px;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 10px;
+        width: 80%;
+        max-width: 600px;
         text-align: center;
       }
-
-      p {
-        margin-bottom: 20px;
+      
+      input[type="button"] {
+        background-color: #fff;
+        border: none;
+        color: #1f1f1f;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      
+      input[type="button"]:hover {
+        background-color: #1f1f1f;
+        color: #fff;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Dark Text Box</h1>
-      <p>Type your text here:</p>
-      <textarea class="textbox" id="text"></textarea>
-      <button class="btn btn-copy" id="copy-btn">Copy All</button>
-      <button class="btn" id="clear-btn">Clear All</button>
+      <input type="text" placeholder="Enter your text here...">
+      <br>
+      <input type="button" value="Copy All">
+      <input type="button" value="Clear All">
     </div>
-
-    <script>
-      const textArea = document.getElementById("text");
-      const copyBtn = document.getElementById("copy-btn");
-      const clearBtn = document.getElementById("clear-btn");
-
-      copyBtn.addEventListener("click", () => {
-        textArea.select();
-        document.execCommand("copy");
-      });
-
-      clearBtn.addEventListener("click", () => {
-        textArea.value = "";
-      });
-    </script>
   </body>
 </html>
