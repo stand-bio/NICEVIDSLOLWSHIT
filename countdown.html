@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>inture.xyz</title>
+	<style>
+		body {
+			background-color: #000;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			font-size: 24px;
+			text-align: center;
+		}
+		
+		h1 {
+			font-size: 48px;
+			margin-top: 100px;
+			margin-bottom: 50px;
+		}
+		
+		#countdown {
+			font-size: 72px;
+			margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<audio id="audio" autoplay muted="" paused="" style="display:none;" controls="" loop="">
+		<source src="media/tay-k.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	
+	<h1>Countdown to Tay-K's freedom</h1>
+	<div id="countdown"></div>
+	
+	<script>
+		// Set the date to countdown to
+		var countDownDate = new Date("January 23, 2047 00:00:00").getTime();
+		
+		// Update the countdown every 1 second
+		var x = setInterval(function() {
+			
+			// Get the current date and time
+			var now = new Date().getTime();
+			
+			// Calculate the distance between now and the countdown date
+			var distance = countDownDate - now;
+			
+			// Calculate the days, hours, minutes, and seconds remaining
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			// Display the countdown in the #countdown element
+			document.getElementById("countdown").innerHTML = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ";
+			
+			// If the countdown is finished, display a message
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "EXPIRED";
+			}
+		}, 1000);
+	</script>
+</body>
+</html>
