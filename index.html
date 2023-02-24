@@ -7,26 +7,11 @@
     <script src="js/TweenMax.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta content="crip walkin' on your internet presence" property="og:description">
-    <style>
-        .btn-container button {
-            font-family: Arial;
-            font-size: 20px;
-            color: #fff;
-            background-color: #2c3e50;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn-container button:hover {
-            background-color: #34495e;
-        }
-    </style>
 </head>
 
 <body>
     <div class="btn-container">
-        <button id="overlay-start" onclick="overlay();">Click Here</button>
+        <button id="overlay-start" onclick="overlay();">click me</button>
     </div>
     <div class="wrapper" id="wrapper">
         <div class="transbox">
@@ -36,10 +21,10 @@
                 <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
             </div>
         </div>
-        <audio id="audio" muted paused style="display:none;" controls loop>
-          <source id="audioSource" src="" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+<audio id="audio" muted paused style="display:none;" controls loop>
+  <source id="audioSource" src="" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
         <video loop muted="muted" id="bgvid">
             <source id="bgSource" src="" type="video/mp4">
         </video>
