@@ -52,59 +52,20 @@ document.getElementById("audio").play();
                     event.preventDefault();
                 }
             };
+// Blur the screen when the site is not focused
+window.addEventListener('blur', function() {
+    document.querySelector('.wrapper').classList.add('blur');
+});
+
+// Remove the blur effect when the site is focused
+window.addEventListener('focus', function() {
+    document.querySelector('.wrapper').classList.remove('blur');
+});
 
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Tab') {
                     e.preventDefault();
                 }
-                
-                //testing
-                   // Create a variable to hold the animation request ID
-let requestId;
-
-// Create an animate function to render the bars
-function animate() {
-  requestId = requestAnimationFrame(animate);
-
-  // Get the current frequency data from the audio analyser
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
-  analyser.getByteFrequencyData(dataArray);
-
-  // Scale the bars based on the frequency data
-  for (let i = 0; i < bars.length; i++) {
-    const scale = dataArray[i] / 150;
-    bars[i].scale.y = scale;
-    scales[i] = scale;
-  }
-
-  // Rotate and animate the bars
-  bars.forEach((bar, i) => {
-    const scale = scales[i];
-    const yRotation = (Date.now() / 1000) * 5;
-    bar.rotation.y = yRotation;
-    bar.position.y = -0.25 - (scale / 2);
-  });
-
-  // Render the scene
-  renderer.render(scene, camera);
-}
-
-// Start the animation
-animate();
-
-// Add an event listener to the window object to stop the animation and remove the bars when the user switches to a different window
-window.addEventListener('blur', () => {
-  // Stop the animation
-  cancelAnimationFrame(requestId);
-
-  // Remove the bars from the DOM
-  bars.forEach((bar) => {
-    barsContainer.removeChild(bar);
-  });
-});
-
-                //end of testing
                 
             });
         </script>
