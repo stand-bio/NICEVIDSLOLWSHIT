@@ -62,61 +62,6 @@ window.addEventListener('focus', function() {
     document.querySelector('.wrapper').classList.remove('blur');
 });
                 
-                //EXPIRIMENTAL
-               
-// Add a Bass-O-Meter option when the 'e' key is pressed
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'e') {
-    e.preventDefault();
-    // Create a transparent-ish menu
-    let menu = document.createElement('div');
-    menu.style.position = 'fixed';
-    menu.style.top = '0';
-    menu.style.left = '0';
-    menu.style.width = '100%';
-    menu.style.height = '100%';
-    menu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    menu.style.zIndex = '9999';
-
-    // Add a slider to adjust the bass
-    let slider = document.createElement('input');
-    slider.type = 'range';
-    slider.min = '0';
-    slider.max = '500';
-    slider.value = '100';
-    slider.style.width = '80%';
-    slider.style.marginTop = '50px';
-    slider.style.marginLeft = '10%';
-
-    let label = document.createElement('label');
-    label.innerHTML = 'Bass-O-Meter';
-    label.style.color = '#fff';
-    label.style.display = 'block';
-    label.style.fontSize = '30px';
-    label.style.textAlign = 'center';
-    label.style.marginTop = '20px';
-
-    // Add event listener to adjust the bass of the current song
-    slider.addEventListener('input', function() {
-      let bassValue = slider.value;
-      let audio = document.getElementById('audio');
-      let bass = audio.createBiquadFilter();
-      bass.type = 'lowshelf';
-      bass.frequency.value = 100;
-      bass.gain.value = bassValue;
-      let source = audio.createMediaElementSource(audio);
-      source.connect(bass);
-      bass.connect(audio.destination);
-    });
-
-    // Add the slider and label to the menu
-    menu.appendChild(label);
-    menu.appendChild(slider);
-
-    // Add the menu to the page
-    document.body.appendChild(menu);
-  }
-});
         </script>
     </div>
 </body>
