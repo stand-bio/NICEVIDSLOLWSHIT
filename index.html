@@ -10,6 +10,7 @@
 </head>
 
 <body>
+      <div id="container"></div>
     <div class="btn-container">
         <button id="overlay-start" onclick="overlay();">click me</button>
     </div>
@@ -28,6 +29,7 @@
         <video loop muted="muted" id="bgvid">
             <source id="bgSource" src="" type="video/mp4">
         </video>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
         <script src="js/sparklehover.js"></script>
         <script src="js/animatetitle.js"></script>
         <script>
@@ -55,6 +57,81 @@ document.getElementById("audio").play();
                 if (e.key === 'Tab') {
                     e.preventDefault();
                 }
+                
+                //testing
+                 // Create a new scene
+const scene = new THREE.Scene();
+
+// Create a new camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+
+// Create a new renderer
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('container').appendChild(renderer.domElement);
+ 
+                // Create a new box geometry
+const boxGeometry = new THREE.BoxGeometry(0.5, 1, 0.5);
+
+// Create a material for the bars
+const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
+// Create an array to hold the bars
+const bars = [];
+
+// Create 10 bars and add them to the scene
+for (let i = 0; i < 10; i++) {
+  const bar = new THREE.Mesh(boxGeometry, material);
+  bar.position.x = i - 5;
+  scene.add(bar);
+  bars.push(bar);
+}
+
+                // Create an audio context and load the sound file
+const audioContext = new AudioContext();
+const audioElement = document.getElementById('audio');
+const audioSource = audioContext.createMediaElementSource(audioElement);
+const analyser = audioContext.createAnalyser();
+audioSource.connect(analyser);
+analyser.connect(audioContext.destination);
+audioElement.play();
+
+// Create an array to hold the bar scales
+const scales = [];
+
+// Create the animation loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Get the current frequency data from the audio analyser
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+  analyser.getByteFrequencyData(dataArray);
+
+  // Scale the bars based on the frequency data
+  for (let i = 0; i < bars.length; i++) {
+    const scale = dataArray[i] / 100;
+    bars[i].scale.y = scale;
+    scales[i] = scale;
+  }
+
+  // Rotate the bars
+  bars.forEach((bar, i) => {
+    const scale = scales[i];
+    const rotationSpeed = 0.05;
+    bar.rotation.x += rotationSpeed * scale;
+    bar.rotation.y += rotationSpeed * scale;
+  });
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+                
+                //end of testing
+                
             });
         </script>
     </div>
