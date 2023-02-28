@@ -69,10 +69,18 @@ camera.position.z = 5;
 // Create a new renderer
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('container').appendChild(renderer.domElement);
- 
-                // Create a new box geometry
-const boxGeometry = new THREE.BoxGeometry(0.5, 1, 0.5);
+
+// Create a new div for the bars and add it to the container
+const barsContainer = document.createElement('div');
+barsContainer.style.position = 'absolute';
+barsContainer.style.bottom = '0';
+barsContainer.style.width = '100%';
+barsContainer.style.height = '50px';
+document.getElementById('container').appendChild(barsContainer);
+barsContainer.appendChild(renderer.domElement);
+
+// Create a new box geometry for the bars
+const boxGeometry = new THREE.BoxGeometry(0.2, 0.5, 0.2);
 
 // Create a material for the bars
 const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
@@ -84,21 +92,18 @@ const bars = [];
 for (let i = 0; i < 10; i++) {
   const bar = new THREE.Mesh(boxGeometry, material);
   bar.position.x = i - 5;
+  bar.position.y = -0.25;
+  barsContainer.appendChild(renderer.domElement);
   scene.add(bar);
   bars.push(bar);
 }
 
-                // Create an audio context and load the sound file
-const audioContext = new AudioContext();
-const audioElement = document.getElementById('audio');
-const audioSource = audioContext.createMediaElementSource(audioElement);
-const analyser = audioContext.createAnalyser();
-audioSource.connect(analyser);
-analyser.connect(audioContext.destination);
-audioElement.play();
-
 // Create an array to hold the bar scales
 const scales = [];
+
+// Create an animated color for the bars
+const color = new THREE.Color();
+let hue = 0;
 
 // Create the animation loop
 function animate() {
@@ -111,17 +116,25 @@ function animate() {
 
   // Scale the bars based on the frequency data
   for (let i = 0; i < bars.length; i++) {
-    const scale = dataArray[i] / 100;
+    const scale = dataArray[i] / 150;
     bars[i].scale.y = scale;
     scales[i] = scale;
   }
 
-  // Rotate the bars
+  // Rotate and animate the bars
   bars.forEach((bar, i) => {
     const scale = scales[i];
-    const rotationSpeed = 0.05;
-    bar.rotation.x += rotationSpeed * scale;
-    bar.rotation.y += rotationSpeed * scale;
+    const rotationSpeed = 0.05 * scale;
+    bar.rotation.x += rotationSpeed;
+    bar.rotation.y += rotationSpeed;
+
+    // Update the bar color
+    hue += 0.5 * scale;
+    if (hue > 360) {
+      hue -= 360;
+    }
+    color.setHSL(hue / 360, 1, 0.5);
+    bar.material.color.set(color);
   });
 
   renderer.render(scene, camera);
@@ -129,7 +142,6 @@ function animate() {
 
 animate();
 
-                
                 //end of testing
                 
             });
