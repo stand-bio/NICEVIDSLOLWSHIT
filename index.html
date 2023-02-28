@@ -77,6 +77,20 @@ window.addEventListener('focus', function() {
                     e.preventDefault();
                 }
                 
+                //EXPIRIMENTAL
+               
+                //BASS MODE
+                function activateBassMode() {
+    $('body').addClass('bass-mode');
+}
+$(document).on('keydown', function(e) {
+    if (e.key === 'e') {
+        activateBassMode();
+    }
+});
+
+                
+                
             });
         </script>
     </div>
