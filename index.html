@@ -52,6 +52,16 @@ document.getElementById("audio").play();
                     event.preventDefault();
                 }
             };
+            // Animate the background video when the site loads
+window.addEventListener('load', function() {
+    gsap.to('#bgvid', {
+        duration: 10,
+        x: '+=50',
+        yoyo: true,
+        repeat: -1
+    });
+});
+
 // Blur the screen when the site is not focused
 window.addEventListener('blur', function() {
     document.querySelector('.wrapper').classList.add('blur');
