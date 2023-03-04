@@ -79,12 +79,15 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-//Cookie Tampering Detetction
+// Set the default value of isAdmin to 0
 document.cookie = "isAdmin=0";
-if (document.cookie.indexOf("isAdmin") === -0) {
+
+// Check if the value of isAdmin is different from 0
+if (document.cookie.indexOf("isAdmin=0") !== 0) {
     window.alert("Cookie tampering detected!🤓");
     window.location.href = skidlink;
 }
+
 
 //Incognito Mode Detection
 var isIncognito = false;
