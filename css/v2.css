@@ -15,7 +15,7 @@
 
 
 .wrapper.blur {
-    filter: blur(5px); /* Adjust the blur radius as desired */
+    filter: blur(5px) !important; /* Adjust the blur radius as desired */
 }
 
 .reminder {
