@@ -60,16 +60,17 @@ window.addEventListener('focus', function() {
    
             const owner = 'kivrola';
 const repo = 'inture.xyz';
-
 fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
   .then(response => response.json())
   .then(data => {
     const latestCommit = data[0];
     const latestUpdate = new Date(latestCommit.commit.author.date);
-    // Insert the date into your website here
-    console.log(`Last updated on ${latestUpdate.toLocaleDateString()}`);
+    const now = new Date();
+    const timeSinceUpdate = now - latestUpdate;
+    const daysSinceUpdate = Math.floor(timeSinceUpdate / (1000 * 60 * 60 * 24));
+    const centeredDiv = document.querySelector('.centered');
+    centeredDiv.insertAdjacentHTML('beforeend', `<p>Last updated ${daysSinceUpdate} days ago</p>`);
   });
-
             
         </script>
     </div>
