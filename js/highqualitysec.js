@@ -6,6 +6,7 @@ document.addEventListener('contextmenu', function(event) {
 document.onkeydown = function(event) {
     if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
         event.preventDefault();
+        window.alert("🤓");
         window.location.href = "https://resources.infosecinstitute.com/topic/25-ways-to-become-the-ultimate-script-kiddie/";
     }
 };
