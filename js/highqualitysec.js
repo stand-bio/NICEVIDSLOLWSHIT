@@ -80,7 +80,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 //Cookie Tampering Detetction
-document.cookie = "testcookie=1";
+document.cookie = "isAdmin=0";
 if (document.cookie.indexOf("isAdmin") === -1) {
     window.alert("Cookie tampering detected!🤓");
     window.location.href = skidlink;
