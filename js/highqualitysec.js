@@ -1,4 +1,3 @@
-// Set the URL for redirection
 var skidlinks = [
     'https://resources.infosecinstitute.com/topic/25-ways-to-become-the-ultimate-script-kiddie/',
     'https://resources.infosecinstitute.com/topic/ethical-hacking/',
@@ -8,12 +7,10 @@ var skidlinks = [
 ];
 var skidlink = skidlinks[Math.floor(Math.random() * skidlinks.length)];
 
-// Right-click blocking
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
 });
 
-// Saving detections
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && (event.keyCode === 83 || event.keyCode === 115)) {
         event.preventDefault();
@@ -22,13 +19,19 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// DevTools detections
-// Load devtools-detect library script
-<script src="https://unpkg.com/devtools-detect"></script>
+// Load devtools-detect library
+var script = document.createElement('script');
+script.src = 'https://unpkg.com/devtools-detect';
+document.head.appendChild(script);
 
-// Add devtools detection using devtools-detect
+// Define devtools variable
+var devtools = {};
+
+// Wait for devtoolsLoad event to fire
 document.addEventListener('devtoolsLoad', function(event) {
-    devtools.addListener((isOpen) => {
+    // Add listener for devtools change
+    devtools = window.devtools;
+    devtools.addListener(function (isOpen) {
         if (isOpen) {
             window.alert("DevTools detected!🤓");
             window.location.href = skidlink;
@@ -36,7 +39,6 @@ document.addEventListener('devtoolsLoad', function(event) {
     });
 });
 
-// Add F12 key detection for DevTools
 document.addEventListener('keydown', function(event) {
     if (event.keyCode == 123) { 
         event.preventDefault();
@@ -45,7 +47,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Add debugger detection
 var minimalUserResponseInMiliseconds = 100;
 var before = new Date().getTime();
 debugger;
@@ -55,7 +56,6 @@ if (after - before > minimalUserResponseInMiliseconds) {
     window.location.href = skidlink; 
 }
 
-// Add detection for opening the JavaScript console
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.shiftKey && (event.keyCode === 74 || event.keyCode === 106)) {
         event.preventDefault();
@@ -64,7 +64,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Add detection for opening the Network panel in DevTools
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.shiftKey && (event.keyCode === 69 || event.keyCode === 101)) {
         event.preventDefault();
