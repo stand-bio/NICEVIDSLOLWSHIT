@@ -1,17 +1,4 @@
 
-(function() {
-    var devtools = /./;
-    devtools.toString = function() {
-        this.opened = true;
-        window.location.replace('https://resources.infosecinstitute.com/topic/25-ways-to-become-the-ultimate-script-kiddie/');
-    }
-    console.log('%c', devtools);
-})();
-
-
-
-
-
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
 });
@@ -23,7 +10,14 @@ document.onkeydown = function(event) {
     }
 };
 
-window.addEventListener('devtoolschange', event => {
-    if (event.detail.open) {
+
+(function() {
+    var devtools = /./;
+    devtools.toString = function() {
+        this.opened = true;
         window.location.replace('https://resources.infosecinstitute.com/topic/25-ways-to-become-the-ultimate-script-kiddie/');
     }
+    console.log('%c', devtools);
+})();
+
+
