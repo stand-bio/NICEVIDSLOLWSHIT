@@ -22,11 +22,13 @@ devtoolsScript.setAttribute('src', 'https://unpkg.com/devtools-detect');
 document.head.appendChild(devtoolsScript);
 
 // add devtools detection using devtools-detect
-devtools.addListener((isOpen) => {
-  if (isOpen) {
-    window.alert("DevTools detected!🤓");
-    window.location.href = skidlink;
-  }
+document.addEventListener('devtoolsLoad', function(event) {
+    devtools.addListener((isOpen) => {
+        if (isOpen) {
+            window.alert("DevTools detected!🤓");
+            window.location.href = skidlink;
+        }
+    });
 });
 
 // add F12 key detection for DevTools
