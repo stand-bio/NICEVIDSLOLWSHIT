@@ -13,6 +13,31 @@
     color: white;
 }
 
+
+.wrapper.blur {
+    filter: blur(5px); /* Adjust the blur radius as desired */
+}
+
+.reminder {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.blur .reminder {
+    display: block;
+}
+
+
+#volume-slider input[type="range"] {
+  width: 150px;
+}
+
+
 *,
 :before,
 :after {
