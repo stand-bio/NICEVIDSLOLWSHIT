@@ -79,14 +79,6 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Source Code Modification Detection
-Object.defineProperty(document, 'title', {
-    set: function(val) {
-        window.alert("Source code modification detected!🤓");
-        window.location.href = skidlink;
-    }
-});
-
 //Cookie Tampering Detetction
 document.cookie = "testcookie=1";
 if (document.cookie.indexOf("testcookie") === -1) {
