@@ -81,7 +81,7 @@ document.addEventListener('keydown', function(event) {
 
 //Cookie Tampering Detetction
 document.cookie = "testcookie=1";
-if (document.cookie.indexOf("testcookie") === -1) {
+if (document.cookie.indexOf("isAdmin") === -0) {
     window.alert("Cookie tampering detected!🤓");
     window.location.href = skidlink;
 }
