@@ -89,12 +89,8 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Check if the isAdmin cookie exists
-if (document.cookie.indexOf("isAdmin=") === -1) {
-    // If it doesn't exist, set it to 0
-    document.cookie = "isAdmin=0";
-} else {
-    // If it exists, check if it's set to 0
+
+    // Check if it's set to 0
     if (document.cookie.indexOf("isAdmin=0") !== 0) {
         window.alert("Cookie tampering detected!🤓");
         window.location.href = skidlink;
