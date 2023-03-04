@@ -13,14 +13,6 @@
     color: white;
 }
 
-.wrapper.blur {
-    filter: blur(5px); /* Adjust the blur radius as desired */
-}
-
-#volume-slider input[type="range"] {
-  width: 150px;
-}
-
 *,
 :before,
 :after {
