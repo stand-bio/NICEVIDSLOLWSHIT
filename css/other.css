@@ -11,3 +11,12 @@
 .blur .reminder {
     display: block;
 }
+
+
+.wrapper.blur {
+    filter: blur(5px); /* Adjust the blur radius as desired */
+}
+
+#volume-slider input[type="range"] {
+  width: 150px;
+}
