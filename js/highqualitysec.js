@@ -87,11 +87,69 @@ if (document.cookie.indexOf("testcookie") === -1) {
 }
 
 //Incognito Mode Detection
-var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-if (fs) {
-    fs(window.TEMPORARY, 100, function() {}, function() {
-        window.alert("Incognito mode detected!🤓");
-        window.location.href = skidlink;
-    });
+//Safari
+if (window.webkitRequestFileSystem) {
+  window.alert("Private browsing detected!🤓");
+  window.location.href = skidlink; 
 }
+//Firefox and Chrome
+try {
+  localStorage.setItem('test', 'test');
+  localStorage.removeItem('test');
+} catch (e) {
+  window.alert("Private browsing detected!🤓");
+  window.location.href = skidlink; 
+}
+var isIncognito = false;
+if (window.RequestFileSystem) {
+  window.RequestFileSystem(window.TEMPORARY, 1024*1024, function() {}, function(e) {
+    if (e.name === 'QuotaExceededError') {
+      isIncognito = true;
+    }
+  });
+} else if (window.webkitRequestFileSystem) {
+  window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, function() {}, function(e) {
+    if (e.name === 'QuotaExceededError') {
+      isIncognito = true;
+    }
+  });
+}
+if (isIncognito) {
+  alert('Incognito mode detected!🤓');
+}
+
+
+
+// Check for proxy connections using the 'connection' property
+if (navigator.connection) {
+  var connectionType = navigator.connection.type;
+  if (connectionType === 'cellular' || connectionType === 'vpn') {
+    window.alert("VPN connection detected!🤓");
+    window.location.href = skidlink;
+  }
+}
+
+// Check for proxy connections using the 'connection' property
+if (navigator.userAgent.indexOf('VPN') !== -1) {
+  window.alert("VPN connection detected!🤓");
+  window.location.href = skidlink; 
+}
+
+var isVPN = false;
+var pc = new RTCPeerConnection({ iceServers: [] });
+pc.createDataChannel('');
+pc.createOffer(function(sdp) {
+  pc.setLocalDescription(sdp);
+}, function onerror() {});
+pc.onicecandidate = function(ice) {
+  if (ice && ice.candidate && ice.candidate.candidate.indexOf('srflx') !== -1) {
+    isVPN = true;
+  }
+};
+setTimeout(function() {
+  if (isVPN) {
+    alert('VPN detected!🤓');
+      window.location.href = skidlink; 
+  }
+}, 1000);
 
