@@ -57,7 +57,20 @@ window.addEventListener('blur', function() {
 window.addEventListener('focus', function() {
     document.querySelector('.wrapper').classList.remove('blur');
 });
-                
+   
+            const owner = 'kivrola';
+const repo = 'inture.xyz';
+
+fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
+  .then(response => response.json())
+  .then(data => {
+    const latestCommit = data[0];
+    const latestUpdate = new Date(latestCommit.commit.author.date);
+    // Insert the date into your website here
+    console.log(`Last updated on ${latestUpdate.toLocaleDateString()}`);
+  });
+
+            
         </script>
     </div>
 </body>
