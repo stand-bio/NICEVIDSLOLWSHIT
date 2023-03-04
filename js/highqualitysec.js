@@ -149,10 +149,15 @@ setTimeout(function() {
 
 
 document.addEventListener('keydown', function(event) {
-  if (event.key === 'e') {
-    const ip = "IP Address: " + window.location.host;
-    const ua = "User Agent: " + navigator.userAgent;
-    alert(ip + "\n" + ua);
+  if (event.key === 'g') {
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ip = "IP Address: " + data.ip;
+        const ua = "User Agent: " + navigator.userAgent;
+        alert(ip + "\n" + ua);
+      })
+      .catch(error => console.error(error));
   }
 });
 
