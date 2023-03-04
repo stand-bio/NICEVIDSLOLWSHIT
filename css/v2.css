@@ -21,6 +21,19 @@
   width: 150px;
 }
 
+.reminder {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.blur .reminder {
+    display: block;
+}
 
 *,
 :before,
