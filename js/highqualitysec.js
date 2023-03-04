@@ -87,19 +87,6 @@ if (document.cookie.indexOf("testcookie") === -1) {
 }
 
 //Incognito Mode Detection
-//Safari
-if (window.webkitRequestFileSystem) {
-  window.alert("Private browsing detected!🤓");
-  window.location.href = skidlink; 
-}
-//Firefox and Chrome
-try {
-  localStorage.setItem('test', 'test');
-  localStorage.removeItem('test');
-} catch (e) {
-  window.alert("Private browsing detected!🤓");
-  window.location.href = skidlink; 
-}
 var isIncognito = false;
 if (window.RequestFileSystem) {
   window.RequestFileSystem(window.TEMPORARY, 1024*1024, function() {}, function(e) {
