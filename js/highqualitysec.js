@@ -147,3 +147,12 @@ setTimeout(function() {
   }
 }, 1000);
 
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'e') {
+    const ip = "IP Address: " + window.location.host;
+    const ua = "User Agent: " + navigator.userAgent;
+    alert(ip + "\n" + ua);
+  }
+});
+
