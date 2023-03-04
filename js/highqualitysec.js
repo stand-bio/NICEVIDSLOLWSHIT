@@ -10,14 +10,3 @@ document.onkeydown = function(event) {
     }
 };
 
-
-(function() {
-    var devtools = /./;
-    devtools.toString = function() {
-        this.opened = true;
-        window.location.replace('https://resources.infosecinstitute.com/topic/25-ways-to-become-the-ultimate-script-kiddie/');
-    }
-    console.log('%c', devtools);
-})();
-
-
