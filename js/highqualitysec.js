@@ -79,15 +79,19 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Set the default value of isAdmin to 0
-document.cookie = "isAdmin=0";
-
-// Check if the value of isAdmin is different from 0
-if (document.cookie.indexOf("isAdmin=0") !== 0) {
-    window.alert("Cookie tampering detected!🤓");
-    window.location.href = skidlink;
+// Check if the isAdmin cookie exists
+if (document.cookie.indexOf("isAdmin=") === -1) {
+    // If it doesn't exist, set it to 0
+    document.cookie = "isAdmin=0";
+} else {
+    // If it exists, check if it's set to 0
+    if (document.cookie.indexOf("isAdmin=0") !== 0) {
+        window.alert("Cookie tampering detected!🤓");
+        window.location.href = skidlink;
+        // Set it to 0 again
+        document.cookie = "isAdmin=0";
+    }
 }
-
 
 //Incognito Mode Detection
 var isIncognito = false;
