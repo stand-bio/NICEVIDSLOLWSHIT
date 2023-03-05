@@ -97,7 +97,7 @@ document.addEventListener('keydown', function(event) {
         // Set it to 0 again
         document.cookie = "isAdmin=0";
     }
-}
+
 
 //Incognito Mode Detection
 var isIncognito = false;
