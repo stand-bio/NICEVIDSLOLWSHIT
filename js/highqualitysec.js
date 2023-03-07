@@ -13,11 +13,6 @@ async function getContent(url) {
     return text;
 }
 
-const pastebinUrl = 'https://pastebin.com/raw/v3F5eajd';
-getContent(pastebinUrl).then(content => {
-    console.log(content);
-});
-
 // Right-click blocking
 document.addEventListener('contextmenu', function(event) {
   event.preventDefault();
@@ -148,23 +143,3 @@ setTimeout(function() {
   }
 }, 1000);
 
-
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'g') {
-    fetch('https://api.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
-        const ip = "IP Address: " + data.ip;
-        const ua = "User Agent: " + navigator.userAgent;
-        const content = ip + "\n" + ua;
-        
-        // Replace WEBHOOK_URL with your Discord webhook URL
-        fetch(pastebinUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content })
-        });
-      })
-      .catch(error => console.error(error));
-  }
-});
