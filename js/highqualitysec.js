@@ -118,7 +118,7 @@ if (isIncognito) {
 // Check for proxy connections using the 'connection' property
 if (navigator.connection) {
   var connectionType = navigator.connection.type;
-  if (connectionType === 'cellular' || connectionType === 'vpn') {
+  if (connectionType === 'proxy' || connectionType === 'vpn') {
     window.alert("VPN connection detected!🤓");
     window.location.href = skidlink;
   }
