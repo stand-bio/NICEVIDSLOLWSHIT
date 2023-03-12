@@ -83,14 +83,6 @@ document.addEventListener('keydown', function(event) {
     window.location.href = skidlink;
   }
 });
-         //set cookie tampering
-        document.cookie = "isAdmin=0";
-    // Check if it's set to 0
-    if (document.cookie.indexOf("isAdmin=0") !== 0) {
-        window.alert("Cookie tampering detected!🤓");
-        window.location.href = skidlink;
-    }
-
 
 //Incognito Mode Detection
 var isIncognito = false;
