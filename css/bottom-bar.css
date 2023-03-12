@@ -1,24 +1,16 @@
-#bottom-bar {
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
-  background-color: black;
-  color: white;
-  font-size: 16px;
+  background-color: #ffffff;
+  border-top: 1px solid #dddddd;
+  font-size: 12px;
   text-align: center;
-  padding-top: 12px;
-  box-sizing: border-box;
-  z-index: 9999;
+  padding: 5px;
 }
 
-#bottom-bar a {
-  color: white;
-  text-decoration: underline;
-}
-
-#bottom-bar span {
-  display: inline-block;
-  margin-right: 20px;
+.footer a {
+  color: #000000;
+  font-weight: bold;
 }
