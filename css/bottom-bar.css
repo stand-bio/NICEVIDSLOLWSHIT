@@ -1,22 +1,9 @@
-.bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.bottom-bar p {
-  margin: 0;
-  font-size: 20px;
-}
-
-.bottom-bar .looking-for-vaiz {
-  color: white;
-}
+        #bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
