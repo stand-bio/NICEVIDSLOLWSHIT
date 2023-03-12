@@ -221,3 +221,15 @@ video::-webkit-media-controls-play-button {
 video::-webkit-media-controls-start-playback-button {
   display: none !important;
 }
+
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
