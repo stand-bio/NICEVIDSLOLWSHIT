@@ -113,23 +113,3 @@ if (navigator.connection) {
     window.location.href = skidlink;
   }
 }
-
-
-var isVPN = false;
-var pc = new RTCPeerConnection({ iceServers: [] });
-pc.createDataChannel('');
-pc.createOffer(function(sdp) {
-  pc.setLocalDescription(sdp);
-}, function onerror() {});
-pc.onicecandidate = function(ice) {
-  if (ice && ice.candidate && ice.candidate.candidate.indexOf('srflx') !== -1) {
-    isVPN = true;
-  }
-};
-setTimeout(function() {
-  if (isVPN) {
-    alert('VPN detected!🤓');
-      window.location.href = skidlink; 
-  }
-}, 1000);
-
