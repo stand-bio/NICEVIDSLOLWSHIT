@@ -169,14 +169,9 @@ color: #fff;
 
 /* Text Background (black zone) */
 .clip-text:after {
-    position: absolute;
-    z-index: -1;
-    top: .125em;
-    right: .125em;
-    bottom: .125em;
-    left: .125em;
-    background-color: #000;
+  content: ''; /* remove black box */
 }
+
 
 /* Change the background position to display letter when the black zone isn't here */
 .clip-text--no-textzone:before {
