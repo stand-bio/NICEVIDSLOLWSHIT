@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wcrawler</title>
+    <title>inture.xyz</title>
     <style>
         * {
             box-sizing: border-box;
@@ -119,7 +119,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Wcrawler</h1>
+        <h1>webrip</h1>
         <p>Enter the URL you want to crawl:</p>
         <form class="form" onsubmit="event.preventDefault(); skidUrl();">
             <input type="text" id="url-input" placeholder="https://example.com">
@@ -132,31 +132,36 @@
 
         <script>
             function skidUrl() {
-                const urlInput = document.getElementById("url-input");
-                const outputText = document.getElementById("output-text");
+    const urlInput = document.getElementById("url-input");
+    const outputText = document.getElementById("output-text");
 
-                // Validate URL
-                const urlRegex = /^https?:\/\/(?:www\.)?([a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})(?:\/.*)?$/;
-                const url = urlInput.value.trim();
-                if (!urlRegex.test(url)) {
-                    outputText.classList.add("error");
-                    outputText.textContent = "Please enter a valid URL";
-                    return;
-                }
+    // Validate URL
+    const urlRegex = /^https?:\/\/(?:www\.)?([a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})(?:\/.*)?$/;
+    const url = urlInput.value.trim();
+    if (!urlRegex.test(url)) {
+        outputText.classList.add("error");
+        outputText.textContent = "Please enter a valid URL";
+        return;
+    }
 
-                // Make request to API
-                fetch(`https://your-api-url.com?url=${url}`)
-                    .then(response => response.text())
-                    .then(data => {
-                        outputText.classList.remove("error");
-                        outputText.textContent = data;
-                    })
-                    .catch(error => {
-                        console.error(error);
-                        outputText.classList.add("error");
-                        outputText.textContent = "Error: Something went wrong. Please try again later.";
-                    });
-            }
+    // Make request to API
+    const apiEndpoint = 'https://app.scrapingbee.com/api/v1/';
+    const apiKey = 'KWZ1A86DRYBQ4P3BLLLTC9SEUFEDXCZ9IZV9NJCVMWNCPU5LUSY7H97UOUF8S0BLHA7H5XIW6AHFNOAM';
+    const requestUrl = `${apiEndpoint}?api_key=${apiKey}&url=${encodeURIComponent(url)}&js_render=true`;
+
+    fetch(requestUrl)
+        .then(response => response.text())
+        .then(data => {
+            outputText.classList.remove("error");
+            outputText.textContent = data;
+        })
+        .catch(error => {
+            console.error(error);
+            outputText.classList.add("error");
+            outputText.textContent = "Error: Something went wrong. Please try again later.";
+        });
+}
+
         </script>
     </div>
 </body>
