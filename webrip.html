@@ -115,7 +115,6 @@
             }
         }
     </style>
-    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -145,9 +144,9 @@
     }
 
     // Make request to API
-    const apiEndpoint = 'https://app.scrapingbee.com/api/v1/';
-    const apiKey = 'KWZ1A86DRYBQ4P3BLLLTC9SEUFEDXCZ9IZV9NJCVMWNCPU5LUSY7H97UOUF8S0BLHA7H5XIW6AHFNOAM';
-    const requestUrl = `${apiEndpoint}?api_key=${apiKey}&url=${encodeURIComponent(url)}`;
+   const apiEndpoint = 'https://app.abstractapi.com/api/scraping/v1/';
+const apiKey = '6c74f75890264a3e9b6cfa235ea76189';
+const requestUrl = `${apiEndpoint}?api_key=${apiKey}&url=${encodeURIComponent(url)}`;
 
     fetch(requestUrl)
         .then(response => response.text())
