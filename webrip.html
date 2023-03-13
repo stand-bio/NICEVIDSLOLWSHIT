@@ -1,100 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Webrip</title>
-	<style>
-		body {
-			background-color: #fff;
-			font-family: Arial, sans-serif;
-			color: #333;
-		}
-		h1 {
-			text-align: center;
-			margin-top: 50px;
-		}
-		.container {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-around;
-			margin-top: 50px;
-			width: 100%;
-			max-width: 800px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		.box {
-			background-color: #f2f2f2;
-			border: 1px solid #ccc;
-			border-radius: 10px;
-			padding: 20px;
-			width: 30%;
-			text-align: center;
-		}
-		label {
-			font-weight: bold;
-			display: block;
-			margin-bottom: 10px;
-			text-align: left;
-		}
-		input[type="text"] {
-			padding: 10px;
-			font-size: 16px;
-			border-radius: 5px;
-			border: none;
-			width: 100%;
-			box-sizing: border-box;
-			margin-bottom: 20px;
-		}
-		button {
-			background-color: #4CAF50;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-		button:hover {
-			background-color: #3e8e41;
-		}
-		.output {
-			margin-top: 20px;
-			text-align: left;
-		}
-		.output pre {
-			white-space: pre-wrap;
-		}
-	</style>
-	<script src="script.js"></script>
-</head>
-<body>
-	<h1>Webrip</h1>
-	<div class="container">
-		<div class="box" id="html-box">
-			<label for="html-url">HTML</label>
-			<input type="text" id="html-url" placeholder="Enter URL">
-			<button class="skid-button" onclick="skidHtml()">Skid</button>
-			<div class="output">
-				<pre id="html-output"></pre>
-			</div>
-		</div>
-		<div class="box" id="css-box">
-			<label for="css-url">CSS</label>
-			<input type="text" id="css-url" placeholder="Enter URL">
-			<button class="skid-button" onclick="skidCss()">Skid</button>
-			<div class="output">
-				<pre id="css-output"></pre>
-			</div>
-		</div>
-		<div class="box" id="js-box">
-			<label for="js-url">JS</label>
-			<input type="text" id="js-url" placeholder="Enter URL">
-			<button class="skid-button" onclick="skidJs()">Skid</button>
-			<div class="output">
-				<pre id="js-output"></pre>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Crawler</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .form {
+        width: 400px;
+        padding: 50px;
+        background-color: #fff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      .result {
+        margin-top: 50px;
+      }
+
+      pre {
+        white-space: pre-wrap;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+
+      .error {
+        color: red;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <h1>Web Crawler</h1>
+        <form onsubmit="crawlUrl(event)">
+          <input type="text" placeholder="Enter URL" id="urlInput" />
+          <button type="submit">Crawl</button>
+        </form>
+        <div class="result">
+          <pre id="resultOutput"></pre>
+          <p class="error" id="errorOutput"></p>
