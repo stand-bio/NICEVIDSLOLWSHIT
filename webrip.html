@@ -147,7 +147,7 @@
     // Make request to API
     const apiEndpoint = 'https://app.scrapingbee.com/api/v1/';
     const apiKey = 'KWZ1A86DRYBQ4P3BLLLTC9SEUFEDXCZ9IZV9NJCVMWNCPU5LUSY7H97UOUF8S0BLHA7H5XIW6AHFNOAM';
-    const requestUrl = `${apiEndpoint}?api_key=${apiKey}&url=${encodeURIComponent(url)}&js_render=true`;
+    const requestUrl = `${apiEndpoint}?api_key=${apiKey}&url=${encodeURIComponent(url)}&js_render=false`;
 
     fetch(requestUrl)
         .then(response => response.text())
