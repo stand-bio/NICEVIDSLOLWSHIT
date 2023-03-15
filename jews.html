@@ -3,6 +3,9 @@
   <head>
     <title>Top 10 Reasons Why...</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         background-color: #000;
         color: #fff;
@@ -13,43 +16,56 @@
         padding: 0;
       }
       h1 {
-        font-size: 32px;
+        font-size: 48px;
         font-weight: bold;
         text-align: center;
         margin-top: 50px;
         margin-bottom: 30px;
+        text-shadow: 0 0 10px #fff;
       }
       ol {
         list-style-type: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       li {
-        padding: 20px 0;
-        border-bottom: 1px solid #666;
+        padding: 20px 30px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease-in-out;
+      }
+      li:hover {
+        background-color: rgba(255, 255, 255, 0.2);
       }
       li:last-child {
-        border-bottom: none;
+        margin-bottom: 0;
       }
       span {
         color: #999;
         font-size: 14px;
+        margin-top: 10px;
+        display: block;
       }
     </style>
   </head>
   <body>
-    <h1>Top 10 reasons the jews fucking suck.</h1>
+    <h1>Top 10 Reasons Why...</h1>
     <ol>
-      <li>Reason 1<span> - Explanation goes here</span></li>
-      <li>Reason 2<span> - Explanation goes here</span></li>
-      <li>Reason 3<span> - Explanation goes here</span></li>
-      <li>Reason 4<span> - Explanation goes here</span></li>
-      <li>Reason 5<span> - Explanation goes here</span></li>
-      <li>Reason 6<span> - Explanation goes here</span></li>
-      <li>Reason 7<span> - Explanation goes here</span></li>
-      <li>Reason 8<span> - Explanation goes here</span></li>
-      <li>Reason 9<span> - Explanation goes here</span></li>
-      <li>Reason 10<span> - Explanation goes here</span></li>
+      <li>Reason 1<span>Explanation goes here</span></li>
+      <li>Reason 2<span>Explanation goes here</span></li>
+      <li>Reason 3<span>Explanation goes here</span></li>
+      <li>Reason 4<span>Explanation goes here</span></li>
+      <li>Reason 5<span>Explanation goes here</span></li>
+      <li>Reason 6<span>Explanation goes here</span></li>
+      <li>Reason 7<span>Explanation goes here</span></li>
+      <li>Reason 8<span>Explanation goes here</span></li>
+      <li>Reason 9<span>Explanation goes here</span></li>
+      <li>Reason 10<span>Explanation goes here</span></li>
     </ol>
   </body>
-</html> 
+</html>
