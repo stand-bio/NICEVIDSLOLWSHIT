@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>inture.xyz</title>
-  <style>
+ <style>
 body {
   background: linear-gradient(to bottom, #222, #333);
   color: #fff;
@@ -87,11 +87,14 @@ li img {
     <li>2 VAL accounts (150 lvl pistol skins, and one 40 lvl)</li>
     <li>2 LoL accounts (60 lvl n 90 lvl)</li>
     <li>1 Steam account with 10 years badge for CS</li>
-    <li>Steam VAC ban accounts</li>
-    <li class="highlight">check if you just wanna flex</li>
-    <li><a href="https://steamcommunity.com/id/phiz">https://steamcommunity.com/id/phiz</a> (7 games, hentai steam profile backgrounds, 167 skins payday2, random skins, prime)</li>
-    <li><a href="https://steamcommunity.com/id/vachz">https://steamcommunity.com/id/vachz</a> (2021 service medal, random skins, prime)</li>
-    <li><a href="https://steamcommunity.com/id/qqlv/">https://steamcommunity.com/id/qqlv/</a> (19 games, cs skin, 5 years medal, prime)</li>
+    <li>
+      <span class="arrow">▶</span> Steam VAC ban accounts
+      <ul class="sublist">
+        <li><a href="https://steamcommunity.com/id/phiz">https://steamcommunity.com/id/phiz</a> (7 games, hentai steam profile backgrounds, 167 skins payday2, random skins, prime)</li>
+        <li><a href="https://steamcommunity.com/id/vachz">https://steamcommunity.com/id/vachz</a> (2021 service medal, random skins, prime)</li>
+        <li><a href="https://steamcommunity.com/id/qqlv/">https://steamcommunity.com/id/qqlv/</a> (19 games, cs skin, 5 years medal, prime)</li>
+      </ul>
+    </li>
     <li>Many roblox accounts you can check out <a href="https://inture.xyz/accountlist">https://inture.xyz/accountlist</a></li>
     <li>400 Robux 💀</li>
     <li>2 Fortnite accounts, one old with shit skins (1 harley), one more with match point and 2 free skins</li>
@@ -99,5 +102,15 @@ li img {
     <li>1 Steam account me Forza4</li>
     <li>Balance on G2G that I wouldn't like to use</li>
   </ul>
+
+  <script>
+    const arrow = document.querySelector('.arrow');
+    const sublist = document.querySelector('.sublist');
+
+    arrow.addEventListener('click', () => {
+      sublist.classList.toggle('hidden');
+      arrow.textContent = sublist.classList.contains('hidden') ? '▶' : '▼';
+    });
+  </script>
 </body>
 </html>
