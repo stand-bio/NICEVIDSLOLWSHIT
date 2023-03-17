@@ -6,14 +6,16 @@
   <title>inture.xyz</title>
   <style>
 body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
+  background-color: #2C2F33;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
   text-align: center;
-  font-size: 48px;
-  margin-top: 50px;
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  text-shadow: 1px 1px #000000;
 }
 
 ul {
@@ -23,23 +25,46 @@ ul {
 }
 
 li {
-  font-size: 24px;
-  margin-top: 20px;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 li.highlight {
   font-weight: bold;
-  color: #ff0000;
+  color: #FF4136;
 }
 
 a {
-  color: #0000ff;
+  color: #FFFFFF;
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  margin-left: auto;
+  font-size: 1.3rem;
 }
 
 a:hover {
-  color: #ff0000;
+  color: #FF4136;
   text-decoration: underline;
+}
+
+li span {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+li img {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  object-fit: contain;
+}
+
+li:hover {
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  transition: all 0.3s ease-in-out;
 }
 </style>
 </head>
