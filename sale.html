@@ -6,16 +6,17 @@
   <title>inture.xyz</title>
   <style>
 body {
-  background-color: #2C2F33;
-  color: #FFFFFF;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 h1 {
   text-align: center;
   font-size: 3.5rem;
-  margin-top: 2rem;
-  text-shadow: 1px 1px #000000;
+  margin-top: 3rem;
+  text-shadow: 0 3px 8px rgba(255, 255, 255, 0.3);
 }
 
 ul {
@@ -25,10 +26,17 @@ ul {
 }
 
 li {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-top: 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #222;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 li.highlight {
@@ -37,34 +45,31 @@ li.highlight {
 }
 
 a {
-  color: #FFFFFF;
+  color: #fff;
   text-decoration: none;
+  font-size: 1.5rem;
   transition: all 0.3s ease-in-out;
-  margin-left: auto;
-  font-size: 1.3rem;
 }
 
 a:hover {
   color: #FF4136;
-  text-decoration: underline;
 }
 
 li span {
   margin-right: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 li img {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   margin-right: 1rem;
   object-fit: contain;
 }
 
 li:hover {
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
-  transition: all 0.3s ease-in-out;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 </style>
 </head>
