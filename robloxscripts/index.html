@@ -6,23 +6,8 @@
 <body>
 	<h1>Index of Current Directory</h1>
 	<ul>
-		<?php
-			// Get the current directory path
-			$path = ".";
-
-			// Open the directory
-			if ($handle = opendir($path)) {
-				// Loop through the directory and display all files and directories
-				while (false !== ($entry = readdir($handle))) {
-					if ($entry != "." && $entry != "..") {
-						echo "<li><a href=\"$entry\">$entry</a></li>";
-					}
-				}
-
-				// Close the directory
-				closedir($handle);
-			}
-		?>
+		<li><a href="niggahub.lua">niggahub.lua</a></li>
+		<li><a href="oblivion.lua">oblivion.lua</a></li>
 	</ul>
 </body>
 </html>
