@@ -50,12 +50,25 @@ a {
   color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 /* Add a hover effect to the link */
-a:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+a:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background-color: #212121;
+  z-index: -1;
+  transition: all 0.3s ease;
+  transform: scale(0);
+}
+
+a:hover:before {
+  transform: scale(1);
 }
 
 /* Style the link for each file when it is clicked */
