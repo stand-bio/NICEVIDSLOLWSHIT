@@ -3,6 +3,11 @@
 <head>
   <title>inture.xyz</title>
   <style>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index of Current Directory</title>
+  <style>
 /* Define the font and background colors for the page */
 body {
   font-family: 'Poppins', sans-serif;
@@ -12,13 +17,12 @@ body {
 
 /* Style the page title */
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
   margin-top: 4rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  text-shadow: 2px 2px #f5f5f5;
 }
 
 /* Style the list of files */
@@ -37,47 +41,23 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 /* Style the link for each file */
 a {
   display: inline-block;
-  padding: 1.5rem 3rem;
+  padding: 1rem 2rem;
   background-color: #212121;
   color: #fff;
   text-decoration: none;
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  text-shadow: 1px 1px #1a1a1a;
 }
 
 /* Add a hover effect to the link */
-a:before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background-color: #212121;
-  z-index: 0;
-  transition: all 0.3s ease;
-  transform: scale(1);
-  border-radius: 10px;
-}
-
-a:hover:before {
-  transform: scale(1.1);
-}
-
 a:hover {
-  background-color: #1a1a1a;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the link for each file when it is clicked */
@@ -110,6 +90,17 @@ h1 span {
     transform: translateY(0);
   }
 }
+
+  </style>
+</head>
+<body>
+  <h1>Index of Current Directory</h1>
+  <ul>
+    <li><a href="niggahub.lua">niggahub.lua</a></li>
+    <li><a href="oblivion.lua">oblivion.lua</a></li>
+  </ul>
+</body>
+</html>
   </style>
 </head>
 <body>
