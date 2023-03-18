@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>inture.xyz</title>
+</head>
+<body>
+	<h1>Index of /robloxscripts</h1>
+	<ul>
+		<?php
+			// Define the path to the directory you want to index
+			$path = 'robloxscripts/';
+
+			// Open the directory
+			$dir = opendir($path);
+
+			// Loop through the files
+			while ($file = readdir($dir)) {
+				// Skip the "." and ".." directories
+				if ($file == '.' || $file == '..') {
+					continue;
+				}
+
+				// Display the filename as a link
+				echo "<li><a href=\"$path$file\">$file</a></li>";
+			}
+
+			// Close the directory
+			closedir($dir);
+		?>
+	</ul>
+</body>
+</html>
