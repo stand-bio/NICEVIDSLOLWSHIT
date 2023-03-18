@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>inture.xyz</title>
+	<title>Index of Current Directory</title>
 </head>
 <body>
-	<h1>Index of /robloxscripts</h1>
+	<h1>Index of Current Directory</h1>
 	<ul>
 		<?php
-			// Define the path to the directory you want to index
-			$path = 'robloxscripts/';
+			// Get the current directory path
+			$path = ".";
 
 			// Open the directory
-			$dir = opendir($path);
-
-			// Loop through the files
-			while ($file = readdir($dir)) {
-				// Skip the "." and ".." directories
-				if ($file == '.' || $file == '..') {
-					continue;
+			if ($handle = opendir($path)) {
+				// Loop through the directory and display all files and directories
+				while (false !== ($entry = readdir($handle))) {
+					if ($entry != "." && $entry != "..") {
+						echo "<li><a href=\"$entry\">$entry</a></li>";
+					}
 				}
 
-				// Display the filename as a link
-				echo "<li><a href=\"$path$file\">$file</a></li>";
+				// Close the directory
+				closedir($handle);
 			}
-
-			// Close the directory
-			closedir($dir);
 		?>
 	</ul>
 </body>
