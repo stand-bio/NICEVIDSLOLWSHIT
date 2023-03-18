@@ -5,17 +5,19 @@
   <style>
 /* Define the font and background colors for the page */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #292929;
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #212121;
 }
 
 /* Style the page title */
 h1 {
-  font-size: 48px;
-  margin-bottom: 40px;
+  font-size: 3.5rem;
   text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 /* Style the list of files */
@@ -23,29 +25,34 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Style each file item */
 li {
-  margin-bottom: 20px;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style the link for each file */
 a {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #292929;
+  padding: 1rem 2rem;
+  background-color: #212121;
+  color: #fff;
   text-decoration: none;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
 }
 
 /* Add a hover effect to the link */
 a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the link for each file when it is clicked */
@@ -53,6 +60,32 @@ a:active {
   transform: translateY(0);
   box-shadow: none;
 }
+
+/* Style the link for each file on focus */
+a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #212121;
+}
+
+/* Add a nice animation to the page title */
+h1 span {
+  display: inline-block;
+  animation: fadeIn 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
 <body>
