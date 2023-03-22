@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebRTC Calling System</title>
+    <style>
+      /* CSS for the user interface */
+      #call-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      #call-input {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="call-container">
+      <h1>WebRTC Calling System</h1>
+      <input type="text" id="call-input" placeholder="Enter code or ID">
+      <button id="call-btn">Call</button>
+    </div>
+
+    <script>
+      // JavaScript for handling the signaling process and establishing the connection
+      const callInput = document.getElementById("call-input");
+      const callBtn = document.getElementById("call-btn");
+
+      callBtn.addEventListener("click", () => {
+        const code = callInput.value;
+        // Use WebRTC API to establish the connection
+      });
+    </script>
+  </body>
+</html>
