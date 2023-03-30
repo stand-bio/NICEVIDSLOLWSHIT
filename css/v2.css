@@ -265,22 +265,22 @@ video::-webkit-media-controls-start-playback-button {
     margin-right: 10px;
   }
 
-    .popup-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+   .popup-container {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     backdrop-filter: blur(5px);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
 
-    .popup {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
+   .popup {
+     background-color: white;
+     padding: 20px;
+     border-radius: 5px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+     }
