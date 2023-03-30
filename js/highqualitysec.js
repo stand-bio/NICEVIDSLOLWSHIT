@@ -57,9 +57,4 @@ if (after - before > minimalUserResponseInMiliseconds) {
   window.location.href = skidlink; 
 }
 
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Tab') {
-    event.preventDefault();
-  }
-});
 
