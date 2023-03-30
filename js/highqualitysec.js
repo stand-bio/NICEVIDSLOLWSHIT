@@ -56,3 +56,10 @@ if (after - before > minimalUserResponseInMiliseconds) {
   window.alert("Debugger detected!🤓");
   window.location.href = skidlink; 
 }
+
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', event => {
+    event.preventDefault();
+  });
+});
