@@ -50,6 +50,7 @@ document.addEventListener('keydown', function(event) {
   if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
     event.preventDefault();
     window.alert("Control Shift I detected!🤓");
+        window.location.href = skidlink;
   }
 });
 
