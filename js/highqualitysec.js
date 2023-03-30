@@ -57,9 +57,9 @@ if (after - before > minimalUserResponseInMiliseconds) {
   window.location.href = skidlink; 
 }
 
-const tabs = document.querySelectorAll('.tab');
-tabs.forEach(tab => {
-  tab.addEventListener('click', event => {
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Tab') {
     event.preventDefault();
-  });
+  }
 });
+
