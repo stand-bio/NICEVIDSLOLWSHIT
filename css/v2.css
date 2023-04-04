@@ -264,11 +264,3 @@ video::-webkit-media-controls-start-playback-button {
     order: -1;
     margin-right: 10px;
   }
-
-.clip-text {
-  z-index: 2;
-}
-
-.clip-text:after {
-  z-index: 1;
-}
