@@ -64,8 +64,9 @@ window.addEventListener('focus', function() {
     document.querySelector('.wrapper').classList.remove('blur');
 });
 
-            const owner = 'kivrola';
+const owner = 'kivrola';
 const repo = 'inture.xyz';
+
 fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
   .then(response => response.json())
   .then(data => {
@@ -74,9 +75,22 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
     const now = new Date();
     const timeSinceUpdate = now - latestUpdate;
     const daysSinceUpdate = Math.floor(timeSinceUpdate / (1000 * 60 * 60 * 24));
+    let message;
+    switch (daysSinceUpdate) {
+      case 0:
+        message = 'Last updated today!';
+        break;
+      case 1:
+        message = 'Last updated yesterday!';
+        break;
+      default:
+        message = `Last updated ${daysSinceUpdate} days ago`;
+        break;
+    }
     const centeredDiv = document.querySelector('.centered');
-    centeredDiv.insertAdjacentHTML('beforeend', `<p>Last updated ${daysSinceUpdate} days ago</p>`);
+    centeredDiv.insertAdjacentHTML('beforeend', `<p>${message}</p>`);
   });
+
         </script>
     </div>
 </body>
