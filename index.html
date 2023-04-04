@@ -14,46 +14,51 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta content="crip walkin' on your internet presence" property="og:description">
     <style>
-                #cookie-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    z-index: 9999;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+                #overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 100px;
+  background-color: rgba(192, 192, 192, 0.8);
+  border-radius: 10px;
+  display: none;
 }
-#cookie-banner p {
-    margin: 0;
+
+#overlay p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
 }
-#cookie-banner button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
+
+#overlay-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
         </style>
 </head>
 <body>
       
-      <div id="container"></div>
-    <div class="btn-container">
-        <button id="overlay-start" onclick="overlay();">click me</button>
-    </div>
-    <div class="wrapper" id="wrapper">
-        <div class="transbox">
-            <div class="centered">
-                <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
-                <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
-                <a href='https://inture.xyz/discord' target="_blank">discord profile</a><br>
-            </div> 
+      <<div id="container"></div>
+<div class="btn-container">
+    <button id="overlay-start" onclick="overlay();">click me</button>
+</div>
+<div class="wrapper" id="wrapper">
+    <div class="transbox" id="transbox">
+        <div class="centered">
+            <a href='mailto:f@abuse.cx' target="_blank">mail</a><br>
+            <a href="https://t.me/tyvel" target="_blank">telegram</a><br>
+            <a href='https://inture.xyz/discord' target="_blank">discord profile</a><br>
+            <p>Suggestion: refresh the website for a different song / video</p>
+            <button id="close-btn" onclick="closeOverlay();">X</button>
         </div>
+    </div>
+</div>
+
         
 <div class="bottom-bar">
   <p>© 2023 inture.xyz</p>
@@ -119,51 +124,62 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
 
 // Function to check if the user is a new visitor
 function isNewVisitor() {
-    // Check if a cookie named "visited" exists
-    const visited = getCookie("visited");
-    if (visited) {
-        return false; // The user has visited before
-    } else {
-        // Set a cookie named "visited" that expires in 1 day
-        setCookie("visited", "true", 1);
-        return true; // The user is a new visitor
-    }
+  // Check if a cookie named "visited" exists
+  const visited = getCookie("visited");
+  if (visited) {
+    return false; // The user has visited before
+  } else {
+    // Set a cookie named "visited" that expires in 1 day
+    setCookie("visited", "true", 1);
+    return true; // The user is a new visitor
+  }
 }
 
 // Function to get a cookie by name
 function getCookie(name) {
-    const cookies = document.cookie.split("; ");
-    for (let i = 0; i < cookies.length; i++) {
-        const [key, value] = cookies[i].split("=");
-        if (key === name) {
-            return decodeURIComponent(value);
-        }
+  const cookies = document.cookie.split("; ");
+  for (let i = 0; i < cookies.length; i++) {
+    const [key, value] = cookies[i].split("=");
+    if (key === name) {
+      return decodeURIComponent(value);
     }
-    return null;
+  }
+  return null;
 }
 
 // Function to set a cookie
 function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    const expires = date.toUTCString();
-    document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires};path=/`;
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = date.toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
 }
 
-// Show the cookie banner if the user is a new visitor
-if (isNewVisitor()) {
-    const cookieBanner = document.createElement("div");
-    cookieBanner.id = "cookie-banner";
-    cookieBanner.innerHTML = "<p>This website uses cookies to ensure you get the best experience on our website. <a href='/privacy-policy'>Learn more</a></p><button>&times;</button>";
-    document.body.appendChild(cookieBanner);
-
-    const closeButton = cookieBanner.querySelector("button");
-    closeButton.addEventListener("click", function() {
-        cookieBanner.style.display = "none";
-    });
-
-    cookieBanner.style.display = "flex";
+// Function to show the overlay message
+function showOverlay() {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "block";
 }
+
+// Function to hide the overlay message
+function hideOverlay() {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
+}
+
+// Function to refresh the page
+function refreshPage() {
+  location.reload();
+}
+
+// Main function to display the overlay message if the user is a new visitor
+function main() {
+  if (isNewVisitor()) {
+    showOverlay();
+  }
+}
+
+main();
 
             
         </script>
