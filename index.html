@@ -14,31 +14,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta content="crip walkin' on your internet presence" property="og:description">
     <style>
-                #overlay {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  height: 100px;
-  background-color: rgba(192, 192, 192, 0.8);
-  border-radius: 10px;
-  display: none;
-}
-
-#overlay p {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-#overlay-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
+                
         </style>
 </head>
 <body>
@@ -121,65 +97,6 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
     const centeredDiv = document.querySelector('.centered');
     centeredDiv.insertAdjacentHTML('beforeend', `<p>${message}</p>`);
   });
-
-// Function to check if the user is a new visitor
-function isNewVisitor() {
-  // Check if a cookie named "visited" exists
-  const visited = getCookie("visited");
-  if (visited) {
-    return false; // The user has visited before
-  } else {
-    // Set a cookie named "visited" that expires in 1 day
-    setCookie("visited", "true", 1);
-    return true; // The user is a new visitor
-  }
-}
-
-// Function to get a cookie by name
-function getCookie(name) {
-  const cookies = document.cookie.split("; ");
-  for (let i = 0; i < cookies.length; i++) {
-    const [key, value] = cookies[i].split("=");
-    if (key === name) {
-      return decodeURIComponent(value);
-    }
-  }
-  return null;
-}
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  const expires = date.toUTCString();
-  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
-}
-
-// Function to show the overlay message
-function showOverlay() {
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "block";
-}
-
-// Function to hide the overlay message
-function hideOverlay() {
-  const overlay = document.getElementById("overlay");
-  overlay.style.display = "none";
-}
-
-// Function to refresh the page
-function refreshPage() {
-  location.reload();
-}
-
-// Main function to display the overlay message if the user is a new visitor
-function main() {
-  if (isNewVisitor()) {
-    showOverlay();
-  }
-}
-
-main();
 
             
         </script>
