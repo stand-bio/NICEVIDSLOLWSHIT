@@ -13,6 +13,52 @@
     <script src="js/highqualitysec.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <meta content="crip walkin' on your internet presence" property="og:description">
+    <style>
+                /* Styles for the popup */
+        .popup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease;
+        }
+        .popup {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup p {
+            margin-bottom: 0;
+        }
+        .popup .close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+        }
+        /* Show the popup when it's visible */
+        .popup-container.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+        </style>
 </head>
 <body>
       
@@ -91,6 +137,40 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
     centeredDiv.insertAdjacentHTML('beforeend', `<p>${message}</p>`);
   });
 
+            // Function to check if the user is a new visitor
+function isNewVisitor() {
+  // Check if a cookie named "visited" exists
+  const visited = getCookie("visited");
+  if (visited) {
+    return false; // The user has visited before
+  } else {
+    // Set a cookie named "visited" that expires in 1 day
+    setCookie("visited", "true", 1);
+    return true; // The user is a new visitor
+  }
+}
+
+// Function to get a cookie by name
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (let i = 0; i < cookies.length; i++) {
+    const [key, value] = cookies[i].split("=");
+    if (key === name) {
+      return decodeURIComponent(value);
+    }
+  }
+  return null;
+}
+
+// Function to set a cookie
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = date.toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+
+            
         </script>
     </div>
 </body>
