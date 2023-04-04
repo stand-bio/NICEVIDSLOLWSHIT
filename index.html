@@ -78,10 +78,10 @@ fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
     let message;
     switch (daysSinceUpdate) {
       case 0:
-        message = 'Last updated today!';
+        message = 'Last updated today! (0 days ago)';
         break;
       case 1:
-        message = 'Last updated yesterday!';
+        message = 'Last updated yesterday! (1 day ago)';
         break;
       default:
         message = `Last updated ${daysSinceUpdate} days ago`;
